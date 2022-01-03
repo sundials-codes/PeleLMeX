@@ -16,8 +16,8 @@ amr.n_cell          = 32 32 64      # Level 0 number of cells in each direction
 amr.v               = 1                # AMR verbose
 amr.max_level       = 1                # maximum level number allowed
 amr.ref_ratio       = 2 2 2 2          # refinement ratio
-amr.regrid_int      = 2                # how often to regrid
-amr.n_error_buf     = 2 2 2 2          # number of buffer cells in error est
+amr.regrid_int      = 8                # how often to regrid
+amr.n_error_buf     = 1 1 2 2          # number of buffer cells in error est
 amr.grid_eff        = 0.7              # what constitutes an efficient grid
 amr.blocking_factor = 16               # block factor in grid generation (min box size)
 amr.max_grid_size   = 64               # max box size
@@ -30,25 +30,27 @@ prob.pertmag = 0.0004
 pmf.datafile = "dodecaneLu_pmf.dat"
 
 #-------------------------PeleLM CONTROL----------------------------
-peleLM.v = 4
+peleLM.v = 3
 peleLM.incompressible = 0
 peleLM.rho = 1.17
 peleLM.mu = 0.0
 peleLM.use_wbar = 1
 peleLM.sdc_iterMax = 2
 peleLM.floor_species = 0
+peleLM.num_init_iter = 0
+peleLM.num_divu_iter = 0
 
-peleLM.do_temporals = 1
+peleLM.do_temporals = 0
 peleLM.temporal_int = 2
 peleLM.mass_balance = 1
 
 #amr.restart = chk00005
 #amr.check_int = 2000
-amr.plot_int = 100
-amr.max_step = 5
-amr.dt_shrink = 0.0001
+#amr.plot_int = 100
+amr.max_step = 16
+#amr.dt_shrink = 0.01
 amr.stop_time = 0.001
-#amr.stop_time = 1.00
+amr.fixed_dt = 1.25e-7
 amr.cfl = 0.5
 amr.derive_plot_vars = avg_pressure mag_vort mass_fractions
 
@@ -80,7 +82,7 @@ amr.yH.field_name    = Y(H)
 #amrex.fpe_trap_zero = 1
 #amrex.fpe_trap_overflow = 1
 
-amrex.the_arena_is_managed=1
+amrex.the_arena_is_managed=0
 amrex.abort_on_out_of_gpu_memory = 1
 amrex.signal_handling=0
 amr.loadbalance_with_workestimates = 1
