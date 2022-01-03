@@ -66,7 +66,7 @@ void PeleLM::calcDivU(int is_init,
 
       MultiFab RhoYdot;
       if ( m_do_react && !m_skipInstantRR ) {
-         if (is_init) {          // Either pre-divU, divU or press initial iterations
+//         if (is_init) {          // Either pre-divU, divU or press initial iterations
             if ( m_dt > 0.0 ) {  // divU ite   -> use I_R
                auto ldataR_p = getLevelDataReactPtr(lev);
                RhoYdot.define(grids[lev],dmap[lev],nCompIR(),0);
@@ -75,14 +75,14 @@ void PeleLM::calcDivU(int is_init,
                RhoYdot.define(grids[lev],dmap[lev],nCompIR(),0);
                RhoYdot.setVal(0.0);
             }
-         } else {                // Regular    -> use instantaneous RR
-            RhoYdot.define(grids[lev],dmap[lev],nCompIR(),0);
-#ifdef PELE_USE_EFIELD
-            computeInstantaneousReactionRateEF(lev, a_time, &RhoYdot);
-#else
-            computeInstantaneousReactionRate(lev, a_time, &RhoYdot);
-#endif
-         }
+//         } else {                // Regular    -> use instantaneous RR
+//            RhoYdot.define(grids[lev],dmap[lev],nCompIR(),0);
+//#ifdef PELE_USE_EFIELD
+//            computeInstantaneousReactionRateEF(lev, a_time, &RhoYdot);
+//#else
+//            computeInstantaneousReactionRate(lev, a_time, &RhoYdot);
+//#endif
+//         }
       }
 
       //----------------------------------------------------------------
