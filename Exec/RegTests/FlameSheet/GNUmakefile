@@ -19,6 +19,7 @@ USE_MPI         = FALSE
 USE_OMP         = FALSE
 USE_CUDA        = FALSE
 USE_HIP         = TRUE
+USE_SUNDIALS    = TRUE
 
 # PeleLMeX
 USE_EFIELD      = FALSE
