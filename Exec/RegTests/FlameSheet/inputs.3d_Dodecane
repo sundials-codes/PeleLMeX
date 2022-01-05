@@ -2,7 +2,7 @@
 geometry.is_periodic = 1 1 0              # For each dir, 0: non-perio, 1: periodic
 geometry.coord_sys   = 0                  # 0 => cart, 1 => RZ
 geometry.prob_lo     = 0.0 0.0 0.0        # x_lo y_lo (z_lo)
-geometry.prob_hi     = 0.008 0.008 0.016        # x_hi y_hi (z_hi)
+geometry.prob_hi   = 0.008 0.008 0.016 # x_hi y_hi (z_hi)
 
 # >>>>>>>>>>>>>  BC FLAGS <<<<<<<<<<<<<<<<
 # Interior, Inflow, Outflow, Symmetry,
@@ -12,9 +12,9 @@ peleLM.hi_bc = Interior Interior Outflow
 
 
 #-------------------------AMR CONTROL----------------------------
-amr.n_cell          = 32 32 64      # Level 0 number of cells in each direction   
+amr.n_cell   = 32 32 64   # Level 0 number of cells 
 amr.v               = 1                # AMR verbose
-amr.max_level       = 1                # maximum level number allowed
+amr.max_level       = 2                # maximum level number allowed
 amr.ref_ratio       = 2 2 2 2          # refinement ratio
 amr.regrid_int      = 8                # how often to regrid
 amr.n_error_buf     = 1 1 2 2          # number of buffer cells in error est
@@ -39,6 +39,7 @@ peleLM.sdc_iterMax = 2
 peleLM.floor_species = 0
 peleLM.num_init_iter = 0
 peleLM.num_divu_iter = 0
+peleLM.deltaT_verbose = 1
 
 peleLM.do_temporals = 0
 peleLM.temporal_int = 2
@@ -59,7 +60,7 @@ peleLM.chem_integrator = "ReactorCvode"
 peleLM.use_typ_vals_chem = 1          # Use species/temp typical values in CVODE
 ode.rtol = 1.0e-6                     # Relative tolerance of the chemical solve
 ode.atol = 1.0e-5                     # Absolute tolerance factor applied on typical values
-cvode.solve_type = GMRES               # CVODE Linear solve type (for Newton direction) 
+cvode.solve_type = denseAJ_direct               # CVODE Linear solve type (for Newton direction) 
 cvode.max_order  = 4                   # CVODE max BDF order. 
 
 #--------------------REFINEMENT CONTROL------------------------

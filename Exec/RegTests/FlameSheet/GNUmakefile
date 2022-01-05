@@ -10,7 +10,7 @@ DIM             = 3
 DEBUG           = FALSE
 PRECISION       = DOUBLE
 VERBOSE         = FALSE
-TINY_PROFILE    = FALSE
+TINY_PROFILE    = TRUE
 
 # Compilation
 COMP            = gnu
@@ -20,6 +20,7 @@ USE_CUDA        = FALSE
 USE_HIP         = TRUE
 
 # PeleLMeX
+USE_EFIELD      = FALSE
 
 # PelePhysics
 Chemistry_Model = dodecane_lu
