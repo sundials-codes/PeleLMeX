@@ -1,8 +1,9 @@
 TOP = ../../../..
-AMREX_HOME         ?= ${TOP}/amrex
+SUBMODS = $(PWD)/../../../Submodules
+AMREX_HOME         ?= ${SUBMODS}/amrex
 PELELMEX_HOME      ?= ${TOP}/PeleLMeX
-PELE_PHYSICS_HOME  ?= ${TOP}/PelePhysics
-AMREX_HYDRO_HOME   ?= ${TOP}/AMReX-Hydro
+PELE_PHYSICS_HOME  ?= ${SUBMODS}/PelePhysics
+AMREX_HYDRO_HOME   ?= ${SUBMODS}/AMReX-Hydro
 
 
 # AMReX
@@ -13,7 +14,7 @@ VERBOSE         = FALSE
 TINY_PROFILE    = TRUE
 
 # Compilation
-COMP            = gnu
+COMP            = clang
 USE_MPI         = FALSE
 USE_OMP         = FALSE
 USE_CUDA        = FALSE
